@@ -1,3 +1,4 @@
+import About from "@/components/container/about";
 import SocialMedia from "@/components/social-media";
 
 export default function Home() {
@@ -6,7 +7,8 @@ export default function Home() {
       <p className="my-12 text-center text-3xl text-foreground">
         Welcome to your new Next.js site.
       </p>
-      <SocialMedia />
+      {/* @ts-expect-error Async Server Component */}
+      <About />
     </main>
   );
 }
