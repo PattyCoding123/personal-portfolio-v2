@@ -1,4 +1,5 @@
 import { createClient, type ClientConfig } from "@sanity/client";
+import { type SanityImageSource } from "@sanity/image-url/lib/types/types";
 import imageUrlBuilder from "@sanity/image-url";
 
 import { env } from "@/env.mjs";
@@ -15,4 +16,4 @@ export const client = createClient(config);
 
 // Set up image URL builder for Sanity
 const builder = imageUrlBuilder(client);
-export const urlFor = (source: string) => builder.image(source);
+export const urlFor = (source: SanityImageSource) => builder.image(source);
