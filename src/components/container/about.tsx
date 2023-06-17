@@ -48,6 +48,8 @@ export default async function About() {
               key={`${about.title} ${index}`}
             >
               <img src={urlFor(about.imgUrl).url()} alt={about.title} />
+              <h2 className="bold-text mt-5">{about.title}</h2>
+              <p className="p-text mt-[10px]">{about.description}</p>
             </motion.div>
           ))}
         </div>
