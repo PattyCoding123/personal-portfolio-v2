@@ -1,5 +1,4 @@
 import About from "@/components/container/about";
-import SocialMedia from "@/components/social-media";
 
 export default function Home() {
   return (
