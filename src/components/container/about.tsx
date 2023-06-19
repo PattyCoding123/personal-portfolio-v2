@@ -33,7 +33,7 @@ export default async function About() {
 
   return (
     <ContainerWrapper id="about" className="app__whitebg">
-      <MotionWrapper className="app__about">
+      <MotionWrapper className="flex w-full flex-col">
         <h2 className="head-text">
           I love to<span> code</span>
           <br /> and <span> solve problems</span>
