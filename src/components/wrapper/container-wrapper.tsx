@@ -5,6 +5,7 @@
  */
 
 import { cn } from "@/lib/utils";
+import SocialMedia from "../social-media";
 
 interface ContainerWrapperProps {
   id: string;
@@ -19,7 +20,7 @@ export default function ContainerWrapper({
 }: ContainerWrapperProps) {
   return (
     <div id={id} className={cn("flex min-h-screen w-full flex-row", className)}>
-      {/* <SocialMedia /> */}
+      <SocialMedia />
       <div className="xs:pt-16 xs:px-4 xs:pb-8 flex w-full flex-1 flex-col items-center justify-center px-8 py-16">
         {children}
       </div>
