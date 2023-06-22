@@ -34,24 +34,32 @@ export default async function About() {
   const abouts = await getAbouts();
 
   return (
-    <ContainerWrapper id="about" className="app__whitebg">
+    <ContainerWrapper id="about" className="bg-background">
       <MotionWrapper className="flex w-full flex-col">
-        <h2 className="head-text">
-          I love to<span> code</span>
-          <br /> and <span> solve problems</span>
+        <h2 className="3xl:text-[4rem] xs:text-[2rem] text-center text-[2.75rem] font-extrabold capitalize text-foreground">
+          I love to<span className="text-blue-500"> code</span>
+          <br /> and <span className="text-blue-500"> solve problems</span>
         </h2>
-        <div className="app__profiles">
+        <div className="mt-8 flex flex-wrap items-start justify-center">
           {abouts?.map((about, index) => (
             <motion.div
               whileInView={{ opacity: 1 }}
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.5, type: "tween" }}
-              className="app__profile-item"
+              className="3xl:w-[370px] 3xl:my-8 3xl:mx-16 m-8 flex w-[250px] flex-col items-start"
               key={`${about.title} ${index}`}
             >
-              <img src={urlFor(about.imgUrl).url()} alt={about.title} />
-              <h2 className="bold-text mt-5">{about.title}</h2>
-              <p className="p-text mt-[10px]">{about.description}</p>
+              <img
+                className="3xl:h-20 h-[170px] w-full rounded-2xl object-cover"
+                src={urlFor(about.imgUrl).url()}
+                alt={about.title}
+              />
+              <h2 className="3xl:text-[2rem] xs:text-[0.9rem] mt-5 text-left text-[1.25rem] font-extrabold text-foreground">
+                {about.title}
+              </h2>
+              <p className="3xl:text-[1.75rem] mt-[10px] text-left text-[1.25rem] leading-normal text-foreground/80">
+                {about.description}
+              </p>
             </motion.div>
           ))}
         </div>
