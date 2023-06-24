@@ -6,6 +6,7 @@
 
 import { cn } from "@/lib/utils";
 import SocialMedia from "../social-media";
+import NavigationDots from "../navigation-dots";
 
 interface ContainerWrapperProps {
   id: string;
@@ -21,10 +22,10 @@ export default function ContainerWrapper({
   return (
     <div id={id} className={cn("flex min-h-screen w-full flex-row", className)}>
       <SocialMedia />
-      <div className="xs:pt-16 xs:px-4 xs:pb-8 flex w-full flex-1 flex-col items-center justify-center px-8 py-16">
+      <div className="flex w-full flex-1 flex-col items-center justify-center px-8 py-16 xs:px-4 xs:pb-8 xs:pt-16">
         {children}
       </div>
-      {/* <NavigationDots active={id} /> */}
+      <NavigationDots active={id} />
     </div>
   );
 }
