@@ -79,3 +79,8 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+.app__navbar-blur {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
