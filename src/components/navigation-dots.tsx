@@ -1,7 +1,23 @@
+import { cn } from "@/lib/utils";
+
 interface NavigationDotsProps {
-  active: "home" | "about" | "projects" | "skills" | "contact";
+  active: string;
 }
 
 export default function NavigationDots({ active }: NavigationDotsProps) {
-  return <div className="app__navigation">{[]}</div>;
+  const sections = ["home", "about", "projects", "skills", "contact"];
+
+  return (
+    <div className="app__navigation">
+      {sections.map((section, index) => (
+        <a
+          key={`${section} ${index}`}
+          href={`#${section}`}
+          className={cn("app__navigation-dot", {
+            "bg-blue-500": active === section,
+          })}
+        />
+      ))}
+    </div>
+  );
 }
