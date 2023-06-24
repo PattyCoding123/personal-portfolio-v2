@@ -1,12 +1,8 @@
-"use client";
-
-import { useState } from "react";
 import { Icons } from "./icons";
 import Link from "next/link";
+import MobileMenu from "./mobile-menu";
 
 export default function Navbar() {
-  const [toggle, setToggle] = useState<boolean>(false);
-
   return (
     <nav className="app__navbar-blur fixed z-10 flex w-full items-center justify-between border border-l-0 border-r-0 border-solid border-[rgba(255,255,255,0.18)] px-8 py-4">
       <div className="flex items-center justify-start">
@@ -21,7 +17,7 @@ export default function Navbar() {
           >
             <div className="mb-[5px] h-[5px] w-[5px] rounded-[50%] bg-transparent group-hover:bg-foreground" />
             <Link
-              className="font-[500] uppercase text-foreground no-underline transition-all duration-300 ease-in-out group-hover:text-foreground"
+              className="font-medium uppercase text-foreground no-underline transition-all duration-300 ease-in-out group-hover:text-blue-500"
               href={`#${item}`}
             >
               {item}
@@ -29,6 +25,7 @@ export default function Navbar() {
           </li>
         ))}
       </ul>
+      <MobileMenu />
     </nav>
   );
 }
