@@ -1,21 +1,27 @@
 import { z } from "zod";
 
-export const skillsSchema = z.object({
-  name: z.string(),
-  title: z.string(),
-  type: z.literal("document"),
-  fields: z.array(
-    z.object({
-      name: z.string(),
-      title: z.string(),
-      type: z.union([z.literal("string"), z.literal("image")]),
-      options: z.optional(
-        z.object({
-          hotspot: z.optional(z.boolean()),
+export const skillsSchema = z.array(
+  z.object({
+    _id: z.string(),
+    _type: z.literal("skills"),
+    name: z.string(),
+    bgColor: z.string(),
+    icon: z.object({
+      _type: z.literal("image"),
+      asset: z.object({
+        _ref: z.string(),
+        _type: z.literal("reference"),
+      }),
+      hotspot: z
+        .object({
+          x: z.number(),
+          y: z.number(),
+          height: z.number(),
+          width: z.number(),
         })
-      ),
-    })
-  ),
-});
+        .optional(),
+    }),
+  })
+);
 
 export type Skills = z.infer<typeof skillsSchema>;
