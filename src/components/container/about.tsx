@@ -23,7 +23,7 @@ const getAbouts = async () => {
     return data;
   } catch (error) {
     if (error instanceof z.ZodError) {
-      throw new Error("Invalid data");
+      throw new Error("Invalid abouts data");
     }
   }
 };
@@ -34,7 +34,7 @@ export default async function About() {
   return (
     <ContainerWrapper id="about" className="bg-background">
       <MotionWrapper className="flex w-full flex-col">
-        <h2 className="3xl:text-[4rem] xs:text-[2rem] text-center text-[2.75rem] font-extrabold capitalize text-foreground">
+        <h2 className="text-center text-[2.75rem] font-extrabold capitalize text-foreground 3xl:text-[4rem] xs:text-[2rem]">
           I love to<span className="text-blue-500"> code</span>
           <br /> and <span className="text-blue-500"> solve problems</span>
         </h2>
