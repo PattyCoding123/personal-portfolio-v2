@@ -1,8 +1,10 @@
+import { z } from "zod";
+
 import { client } from "@/lib/sanityClient";
 import { skillsSchema } from "@/lib/validators/skills-validator";
 import { experiencesSchema } from "@/lib/validators/experiences-validator";
-
-import { z } from "zod";
+import ContainerWrapper from "../wrapper/container-wrapper";
+import MotionWrapper from "../wrapper/motion-wrapper";
 
 const getSkills = async () => {
   try {
@@ -30,4 +32,14 @@ const getSkills = async () => {
 
 export default async function Skills() {
   const data = await getSkills();
+  return (
+    <ContainerWrapper id="skills">
+      <MotionWrapper className="app__skills">
+        <h2 className="head-text">
+          {" "}
+          <span>Skills</span> and <span>Experiences</span>
+        </h2>
+      </MotionWrapper>
+    </ContainerWrapper>
+  );
 }
