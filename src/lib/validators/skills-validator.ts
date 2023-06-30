@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const skillsSchema = z.object({
+export const skillsSchema = z.object({
   name: z.string(),
   title: z.string(),
   type: z.literal("document"),
