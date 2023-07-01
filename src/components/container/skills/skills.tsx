@@ -3,8 +3,8 @@ import { z } from "zod";
 import { client } from "@/lib/sanityClient";
 import { skillsSchema } from "@/lib/validators/skills-validator";
 import { experiencesSchema } from "@/lib/validators/experiences-validator";
-import ContainerWrapper from "../wrapper/container-wrapper";
-import MotionWrapper from "../wrapper/motion-wrapper";
+import ContainerWrapper from "../../wrapper/container-wrapper";
+import MotionWrapper from "../../wrapper/motion-wrapper";
 
 const getSkills = async () => {
   try {

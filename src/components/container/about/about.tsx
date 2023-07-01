@@ -2,9 +2,9 @@ import { z } from "zod";
 
 import { client, urlFor } from "@/lib/sanityClient";
 import { aboutsSchema } from "@/lib/validators/abouts-validator";
-import ContainerWrapper from "../wrapper/container-wrapper";
-import MotionWrapper from "../wrapper/motion-wrapper";
-import AboutCard from "../about-card";
+import ContainerWrapper from "../../wrapper/container-wrapper";
+import MotionWrapper from "../../wrapper/motion-wrapper";
+import AboutCard from "../../about-card";
 
 const getAbouts = async () => {
   try {

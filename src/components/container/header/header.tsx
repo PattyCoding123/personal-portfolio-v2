@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import ContainerWrapper from "../wrapper/container-wrapper";
+import ContainerWrapper from "../../wrapper/container-wrapper";
 
 const scaleVariants = {
   // For the image circles to appear larger

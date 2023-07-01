@@ -1,5 +1,5 @@
-import About from "@/components/container/about";
-import Header from "@/components/container/header";
+import About from "@/components/container/about/about";
+import Header from "@/components/container/header/header";
 
 export default function Home() {
   return (
