@@ -38,6 +38,7 @@ export default async function Skills() {
         <h2 className="head-text">
           {" "}
           <span>Skills</span> and <span>Experiences</span>
+          <div className="app__skills-container"></div>
         </h2>
       </MotionWrapper>
     </ContainerWrapper>
