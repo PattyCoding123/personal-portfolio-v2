@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const workExperienceSchema = z.object({
-  _id: z.string(),
+  _key: z.string(),
   _type: z.literal("workExperience"),
   name: z.string(),
   company: z.string(),
@@ -14,6 +14,9 @@ const experiencesSchema = z.array(
   z.object({
     _id: z.string(),
     _type: z.literal("experiences"),
+    _updatedAt: z.string().optional(),
+    _createdAt: z.string().optional(),
+    _rev: z.string().optional(),
     year: z.string(),
     works: z.array(workExperienceSchema),
   })

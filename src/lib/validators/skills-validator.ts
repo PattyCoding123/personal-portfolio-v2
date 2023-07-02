@@ -3,6 +3,9 @@ import { z } from "zod";
 export const skillsSchema = z.array(
   z.object({
     _id: z.string(),
+    _updatedAt: z.string().optional(),
+    _createdAt: z.string().optional(),
+    _rev: z.string().optional(),
     _type: z.literal("skills"),
     name: z.string(),
     bgColor: z.string(),
