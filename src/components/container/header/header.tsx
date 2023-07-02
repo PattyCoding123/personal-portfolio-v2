@@ -34,7 +34,7 @@ export default function Header() {
                 <p className="text-left text-[0.8rem] leading-6 text-black 3xl:text-[1.75rem]">
                   Hello, I am
                 </p>
-                <h1 className="text-center text-[2.75rem] font-extrabold capitalize text-black text-foreground 3xl:text-[4rem] xs:text-[2rem]">
+                <h1 className="text-center text-[2.75rem] font-extrabold capitalize text-black 3xl:text-[4rem] xs:text-[2rem]">
                   Patrick Ducusin
                 </h1>
               </div>
