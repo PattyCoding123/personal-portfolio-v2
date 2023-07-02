@@ -8,7 +8,7 @@ export default function NavigationDots({ active }: NavigationDotsProps) {
   const sections = ["home", "about", "projects", "skills", "contact"];
 
   return (
-    <div className="flex flex-col items-center justify-center p-4">
+    <div className="hidden flex-col items-center justify-center p-4 sm:flex">
       {sections.map((section, index) => (
         <a
           key={`${section} ${index}`}
