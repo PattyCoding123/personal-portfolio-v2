@@ -36,12 +36,12 @@ export default async function Skills() {
   const data = await getSkills();
   return (
     <ContainerWrapper id="skills">
-      <MotionWrapper className="w-full flex-1 flex-col">
+      <MotionWrapper className="w-full flex-[1] flex-col">
         <h2 className="text-center text-[2.75rem] font-extrabold text-foreground 3xl:text-[4rem] xs:text-[2rem]">
           {" "}
           <span className="text-blue-500">Skills</span> and{" "}
           <span className="text-blue-500">Experiences</span>
-          <div className="mt-12 flex w-full flex-col lg:w-4/5 lg:flex-row">
+          <div className="mx-auto mt-12 flex w-full flex-col lg:w-4/5 lg:flex-row">
             <SkillsList skills={data?.skills} />
             <ExperiencesList experiences={data?.experiences} />
           </div>
