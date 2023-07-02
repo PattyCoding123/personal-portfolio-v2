@@ -41,8 +41,8 @@ export default async function Skills() {
           {" "}
           <span>Skills</span> and <span>Experiences</span>
           <div className="app__skills-container">
-            <SkillsList />
-            <ExperiencesList />
+            <SkillsList skills={data?.skills} />
+            <ExperiencesList experiences={data?.experiences} />
           </div>
         </h2>
       </MotionWrapper>
