@@ -6,6 +6,7 @@ import { experiencesSchema } from "@/lib/validators/experiences-validator";
 import ContainerWrapper from "../../wrapper/container-wrapper";
 import MotionWrapper from "../../wrapper/motion-wrapper";
 import SkillsList from "./skills-list";
+import ExperiencesList from "./exp-list";
 
 const getSkills = async () => {
   try {
@@ -41,6 +42,7 @@ export default async function Skills() {
           <span>Skills</span> and <span>Experiences</span>
           <div className="app__skills-container">
             <SkillsList />
+            <ExperiencesList />
           </div>
         </h2>
       </MotionWrapper>
