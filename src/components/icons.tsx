@@ -4,6 +4,8 @@ import {
   Linkedin,
   MenuSquare,
   XCircle,
+  File,
+  Mail,
   type Icon as LucideIcon,
 } from "lucide-react";
 
@@ -15,4 +17,6 @@ export const Icons = {
   linkedin: Linkedin,
   hamburger: MenuSquare,
   close: XCircle,
+  file: File,
+  mail: Mail,
 };
