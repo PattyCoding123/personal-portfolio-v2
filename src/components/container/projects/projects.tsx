@@ -13,7 +13,6 @@ const getProjects = async () => {
       .fetch(query)
       .then((res) => projectsSchema.parse(res));
 
-    console.log(data);
     return data;
   } catch (error) {
     if (error instanceof z.ZodError) {
