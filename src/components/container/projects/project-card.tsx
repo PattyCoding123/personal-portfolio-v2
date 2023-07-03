@@ -18,10 +18,14 @@ interface ProjectCard {
 }
 export default function ProjectCard({ project }: ProjectCard) {
   return (
-    <Card className="app-project-item app__flex">
-      <CardContent>
-        <div className="app__project-img app__flex">
-          <img src={urlFor(project.imgUrl).url()} alt={project.title} />
+    <Card className="text-card-foreground-foreground m-8 flex w-[270px] cursor-pointer flex-col items-center justify-center rounded-[0.5rem] bg-card p-4 transition-all duration-300 hover:shadow-2xl dark:hover:scale-105">
+      <CardContent className="p-0">
+        <div className="relative flex h-[230px] w-full items-center justify-center 3xl:h-[350px]">
+          <img
+            src={urlFor(project.imgUrl).url()}
+            alt={project.title}
+            className="h-full w-full rounded-[0.5rem] object-cover"
+          />
 
           <motion.div
             whileHover={{ opacity: [0, 1] }}
@@ -30,7 +34,7 @@ export default function ProjectCard({ project }: ProjectCard) {
               ease: "easeInOut",
               staggerChildren: 0.5,
             }}
-            className="app__project-hover app__flex"
+            className="absolute bottom-0 left-0 right-0 top-0 flex h-full w-full items-center justify-center rounded-[0.5rem] bg-[rgba(0,0,0,0.5)] opacity-0"
           >
             {project.projectLink && (
               <a
@@ -42,9 +46,9 @@ export default function ProjectCard({ project }: ProjectCard) {
                   whileInView={{ scale: [0, 1] }}
                   whileHover={{ scale: [1, 0.9] }}
                   transition={{ duration: 0.25 }}
-                  className="app__flex"
+                  className="m-4 flex h-14 w-14 cursor-pointer items-center justify-center rounded-[50%] bg-[rgba(0,0,0,0.5)] font-extrabold text-slate-100 transition-all"
                 >
-                  <Icons.eye />
+                  <Icons.eye className="h-1/2 w-1/2 text-slate-100" />
                 </motion.div>
               </a>
             )}
@@ -63,18 +67,20 @@ export default function ProjectCard({ project }: ProjectCard) {
                   whileInView={{ scale: [0, 1] }}
                   whileHover={{ scale: [1, 0.9] }}
                   transition={{ duration: 0.25 }}
-                  className="app__flex"
+                  className="m-4 flex h-14 w-14 cursor-pointer items-center justify-center rounded-[50%] bg-[rgba(0,0,0,0.5)] font-extrabold text-slate-100 transition-all"
                 >
-                  <Icons.github />
+                  <Icons.github className="h-1/2 w-1/2 text-slate-100" />
                 </motion.div>
               </a>
             )}
           </motion.div>
         </div>
       </CardContent>
-      <CardHeader className="app__project-content app__flex">
-        <CardTitle className="bold-text">{project.title}</CardTitle>
-        <CardDescription className="p-text">
+      <CardHeader className="relative flex w-full flex-col items-center justify-center p-1">
+        <CardTitle className="mt-4 text-left text-[1rem] font-extrabold leading-6 text-foreground 3xl:mt-12 3xl:text-[2rem] xs:text-[0.9rem]">
+          {project.title}
+        </CardTitle>
+        <CardDescription className="text-left text-[1rem] leading-6 text-foreground/80 3xl:text-[1.75rem]">
           {project.description}
         </CardDescription>
       </CardHeader>
