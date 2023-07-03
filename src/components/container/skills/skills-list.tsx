@@ -21,9 +21,9 @@ export default function SkillsList({ skills }: SkillsListProps) {
         >
           <div
             className={cn(
-              "flex h-24 w-24 items-center justify-center rounded-full duration-300 hover:shadow-2xl dark:hover:scale-110 3xl:h-36 3xl:w-36 xs:h-16 xs:w-16",
-              `bg-[${skill.bgColor}]`
+              "flex h-24 w-24 items-center justify-center rounded-full duration-300 hover:shadow-2xl dark:hover:scale-110 3xl:h-36 3xl:w-36 xs:h-16 xs:w-16"
             )}
+            style={{ background: skill.bgColor }}
           >
             <img
               src={urlFor(skill.icon).url()}
