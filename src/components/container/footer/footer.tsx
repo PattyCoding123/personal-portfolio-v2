@@ -15,6 +15,7 @@ export default function Footer() {
         </h2>
         <div className="mx-8 mb-8 mt-16 flex w-full flex-wrap items-center justify-evenly md:w-3/5">
           <a
+            href="/files/Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="cursor-pointer no-underline"

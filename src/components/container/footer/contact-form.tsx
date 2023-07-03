@@ -54,8 +54,11 @@ export default function ContactForm() {
       ) : (
         <Form {...form}>
           <form
-            onSubmit={void form.handleSubmit((data) => onSubmit(data))}
-            className="mx-8 my-4 flex w-2/5 flex-col items-center justify-center rounded-md bg-card/80 p-4"
+            onSubmit={(e) => {
+              e.preventDefault();
+              form.handleSubmit((data) => onSubmit(data));
+            }}
+            className="mx-8 my-4 flex w-11/12 flex-col items-center justify-center rounded-md bg-card/80 p-4 lg:w-2/5"
           >
             <FormField
               control={form.control}
