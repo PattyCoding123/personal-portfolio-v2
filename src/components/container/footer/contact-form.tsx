@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { client } from "@/lib/sanityClient";
 import { ButtonLoading } from "@/components/button-loading";
+import { Textarea } from "@/components/ui/textarea";
 
 export function ProfileForm() {
   const form = useForm<FormData>({
@@ -53,16 +54,20 @@ export function ProfileForm() {
         <Form {...form}>
           <form
             onSubmit={void form.handleSubmit((data) => onSubmit(data))}
-            className="space-y-8"
+            className="app__footer-form app__flex"
           >
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Username</FormLabel>
+                <FormItem className="app__flex">
+                  <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Name..." {...field} />
+                    <Input
+                      placeholder="Name..."
+                      className="p-text"
+                      {...field}
+                    />
                   </FormControl>
                   <FormDescription>Please enter your name...</FormDescription>
                   <FormMessage />
@@ -73,10 +78,14 @@ export function ProfileForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Username</FormLabel>
+                <FormItem className="app__flex">
+                  <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="Email..." {...field} />
+                    <Input
+                      placeholder="Email..."
+                      className="p-text"
+                      {...field}
+                    />
                   </FormControl>
                   <FormDescription>Please enter your email...</FormDescription>
                   <FormMessage />
@@ -88,9 +97,9 @@ export function ProfileForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>Message</FormLabel>
                   <FormControl>
-                    <Input placeholder="Message..." {...field} />
+                    <Textarea placeholder="Message..." {...field} />
                   </FormControl>
                   <FormDescription>
                     What would you like to send?
