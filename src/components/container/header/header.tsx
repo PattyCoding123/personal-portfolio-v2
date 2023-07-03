@@ -17,10 +17,7 @@ const scaleVariants = {
 
 export default function Header() {
   return (
-    <ContainerWrapper
-      id="home"
-      className="relative bg-slate-200 p-0 dark:bg-background"
-    >
+    <ContainerWrapper id="home" className="relative bg-background p-0">
       <div className="flex h-full w-full flex-1 flex-col items-center justify-center px-8 pb-0 pt-24 xl:flex-row 3xl:pt-32">
         <motion.div
           whileInView={{ x: [-100, 0], opacity: [0, 1] }}
