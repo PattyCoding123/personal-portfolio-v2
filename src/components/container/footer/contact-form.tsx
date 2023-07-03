@@ -96,7 +96,7 @@ export function ProfileForm() {
               control={form.control}
               name="message"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="app__flex">
                   <FormLabel>Message</FormLabel>
                   <FormControl>
                     <Textarea placeholder="Message..." {...field} />
@@ -111,7 +111,9 @@ export function ProfileForm() {
             {isLoading ? (
               <ButtonLoading />
             ) : (
-              <Button type="submit">Submit</Button>
+              <Button className="p-text" type="submit">
+                Submit
+              </Button>
             )}
           </form>
         </Form>
