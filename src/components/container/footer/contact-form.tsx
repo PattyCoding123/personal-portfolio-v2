@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -20,7 +19,7 @@ import { client } from "@/lib/sanityClient";
 import { ButtonLoading } from "@/components/button-loading";
 import { Textarea } from "@/components/ui/textarea";
 
-export function ProfileForm() {
+export default function ContactForm() {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
@@ -48,28 +47,29 @@ export function ProfileForm() {
     <>
       {isFormSubmitted ? (
         <div>
-          <h3 className="head-text">Thank you for getting in touch!</h3>
+          <h3 className="text-center text-[2.75rem] font-extrabold capitalize text-foreground">
+            Thank you for getting in touch!
+          </h3>
         </div>
       ) : (
         <Form {...form}>
           <form
             onSubmit={void form.handleSubmit((data) => onSubmit(data))}
-            className="app__footer-form app__flex"
+            className="mx-8 my-4 flex w-2/5 flex-col items-center justify-center rounded-md bg-card/80 p-4"
           >
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem className="app__flex">
+                <FormItem className="mx-0 my-[0.75rem] flex w-full cursor-pointer flex-col items-start justify-center rounded-[10%] transition-all duration-300 ease-in-out">
                   <FormLabel>Name</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Name..."
-                      className="p-text"
+                      className="w-full rounded-[7px] border-none bg-slate-100 p-[0.95rem] text-left text-[0.8rem] leading-6 text-black outline-none 3xl:text-[1.75rem]"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription>Please enter your name...</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -78,16 +78,15 @@ export function ProfileForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="app__flex">
+                <FormItem className="mx-0 my-[0.75rem] flex w-full cursor-pointer flex-col items-start justify-center rounded-[10%] transition-all duration-300 ease-in-out">
                   <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Email..."
-                      className="p-text"
+                      className="w-full rounded-[7px] border-none bg-slate-100 p-[0.95rem] text-left text-[0.8rem] leading-6 text-black outline-none 3xl:text-[1.75rem]"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription>Please enter your email...</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -96,14 +95,15 @@ export function ProfileForm() {
               control={form.control}
               name="message"
               render={({ field }) => (
-                <FormItem className="app__flex">
+                <FormItem className="mx-0 my-[0.75rem] flex w-full cursor-pointer flex-col items-start justify-center rounded-[10%] transition-all duration-300 ease-in-out">
                   <FormLabel>Message</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Message..." {...field} />
+                    <Textarea
+                      className="h-44 w-full rounded-[7px] border-none bg-slate-100 p-[0.95rem] text-left text-[0.8rem] leading-6 text-black outline-none 3xl:text-[1.75rem]"
+                      placeholder="Message..."
+                      {...field}
+                    />
                   </FormControl>
-                  <FormDescription>
-                    What would you like to send?
-                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -111,7 +111,10 @@ export function ProfileForm() {
             {isLoading ? (
               <ButtonLoading />
             ) : (
-              <Button className="p-text" type="submit">
+              <Button
+                className="mt-2 cursor-pointer rounded-[10px] border-none bg-primary px-8 py-4 text-left text-[0.8rem] font-medium leading-6 text-primary-foreground outline-none transition-all duration-300 ease-in-out 3xl:text-[1.75rem]"
+                type="submit"
+              >
                 Submit
               </Button>
             )}
