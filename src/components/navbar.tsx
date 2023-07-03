@@ -1,5 +1,4 @@
 import { Icons } from "./icons";
-import Link from "next/link";
 import MobileMenu from "./mobile-menu";
 
 export default function Navbar() {
@@ -16,12 +15,12 @@ export default function Navbar() {
             className="group mx-4 my-0 flex cursor-pointer flex-col items-center justify-center text-left text-[0.8rem] leading-6 text-foreground 3xl:text-[1.75rem]"
           >
             <div className="mb-[5px] h-[5px] w-[5px] rounded-[50%] bg-transparent group-hover:bg-foreground" />
-            <Link
+            <a
               className="font-medium uppercase text-foreground no-underline transition-all duration-300 ease-in-out group-hover:text-blue-500"
               href={`#${item}`}
             >
               {item}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
