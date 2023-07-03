@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { type BaseSyntheticEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -28,7 +28,11 @@ export default function ContactForm() {
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const onSubmit = ({ name, email, message }: FormData) => {
+  const onSubmit = async (
+    { name, email, message }: FormData,
+    e?: BaseSyntheticEvent
+  ) => {
+    e?.preventDefault();
     setIsLoading(true);
 
     const contact = {
@@ -38,7 +42,7 @@ export default function ContactForm() {
       message: message,
     };
 
-    void client.create(contact).then(() => {
+    await client.create(contact).then(() => {
       setIsLoading(false);
       setIsFormSubmitted(true);
     });
@@ -55,10 +59,8 @@ export default function ContactForm() {
       ) : (
         <Form {...form}>
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              form.handleSubmit((data) => onSubmit(data));
-            }}
+            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+            onSubmit={form.handleSubmit(onSubmit)}
             className="mx-8 my-4 flex w-11/12 flex-col items-center justify-center rounded-md bg-card/80 p-4 lg:w-2/5"
           >
             <FormField
