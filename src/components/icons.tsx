@@ -7,6 +7,7 @@ import {
   File,
   Mail,
   Loader2,
+  Eye,
   type Icon as LucideIcon,
 } from "lucide-react";
 
@@ -21,4 +22,5 @@ export const Icons = {
   file: File,
   mail: Mail,
   loading: Loader2,
+  eye: Eye,
 };
