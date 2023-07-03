@@ -17,7 +17,7 @@ export default function SkillsList({ skills }: SkillsListProps) {
           key={skill.name}
           whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 0.5 }}
-          className="m-4 flex flex-col items-center justify-center text-center transition-all duration-300 ease-in-out 3xl:mx-8 3xl:my-4"
+          className="m-4 flex flex-col items-center justify-center text-center 3xl:mx-8 3xl:my-4"
         >
           <div
             className={cn(
