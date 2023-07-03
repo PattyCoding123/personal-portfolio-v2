@@ -22,6 +22,7 @@ import { Textarea } from "@/components/ui/textarea";
 export default function ContactForm() {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    mode: "onChange",
   });
 
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
@@ -115,7 +116,7 @@ export default function ContactForm() {
               <ButtonLoading />
             ) : (
               <Button
-                className="mt-2 cursor-pointer rounded-[10px] border-none bg-primary px-8 py-4 text-left text-[0.8rem] font-medium leading-6 text-primary-foreground outline-none transition-all duration-300 ease-in-out 3xl:text-[1.75rem]"
+                className="mt-2 cursor-pointer rounded-[10px] border-none bg-primary px-8 py-4 text-left text-[0.8rem] font-medium leading-6 text-primary-foreground outline-none transition-all duration-300 ease-in-out active:scale-90 3xl:text-[1.75rem]"
                 type="submit"
               >
                 Submit
