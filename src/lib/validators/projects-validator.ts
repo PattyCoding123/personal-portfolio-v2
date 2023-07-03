@@ -2,7 +2,7 @@ import { z } from "zod";
 export const projectsSchema = z.array(
   z.object({
     _id: z.string(),
-    _type: z.literal("experiences"),
+    _type: z.literal("projects"),
     _updatedAt: z.string().optional(),
     _createdAt: z.string().optional(),
     _rev: z.string().optional(),
@@ -25,11 +25,7 @@ export const projectsSchema = z.array(
         })
         .optional(),
     }),
-    tags: z.array(
-      z.object({
-        tag: z.string(),
-      })
-    ),
+    tags: z.array(z.string()),
   })
 );
 
