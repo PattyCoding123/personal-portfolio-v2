@@ -1,11 +1,11 @@
 import { Inter as FontSans } from "next/font/google";
 import { type Metadata } from "next";
 
+import Navbar from "@/components/navbar";
+import "@/styles/globals.css";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "../components/theme-provider";
-import Navbar from "@/components/navbar";
-import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: siteConfig.title,

@@ -1,9 +1,9 @@
 import ContainerWrapper from "@/components/wrapper/container-wrapper";
 import MotionWrapper from "@/components/wrapper/motion-wrapper";
+import ProjectsFilter from "./projects-filter";
 import { client } from "@/lib/sanityClient";
 import { projectsSchema } from "@/lib/validators/projects-validator";
 import { z } from "zod";
-import ProjectsFilter from "./projects-filter";
 
 const getProjects = async () => {
   try {

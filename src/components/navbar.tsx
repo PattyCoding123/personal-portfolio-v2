@@ -1,5 +1,5 @@
-import { Icons } from "./icons";
 import MobileMenu from "./mobile-menu";
+import { Icons } from "./icons";
 
 export default function Navbar() {
   return (
