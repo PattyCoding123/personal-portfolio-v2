@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { type Projects } from "@/lib/validators/projects-validator";
 import ProjectCard from "./project-card";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface ProjectsFilterProps {
   projects?: Projects;
@@ -60,7 +61,7 @@ export default function ProjectsFilter({ projects }: ProjectsFilterProps) {
     <>
       <div className="mx-0 mb-8 mt-16 flex flex-wrap items-center justify-start">
         {["UI/UX", "Web App", "Mobile App", "All"].map((tag, index) => (
-          <div
+          <Button
             key={index}
             onClick={() => handleProjectFilter(tag)}
             className={cn(
@@ -69,7 +70,7 @@ export default function ProjectsFilter({ projects }: ProjectsFilterProps) {
             )}
           >
             {tag}
-          </div>
+          </Button>
         ))}
       </div>
       <motion.div
