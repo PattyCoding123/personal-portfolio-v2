@@ -27,6 +27,7 @@ const getSkills = async () => {
     return { skills: skillsData, experiences: experiencesData };
   } catch (error) {
     if (error instanceof z.ZodError) {
+      console.log("Hello this is the error:", error);
       throw new Error("Invalid skills or experiences data");
     }
   }

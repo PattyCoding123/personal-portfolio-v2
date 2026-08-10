@@ -29,7 +29,6 @@ export default function Header() {
         >
           <div className="flex w-full flex-col items-end justify-end ">
             <div className="flex w-auto flex-row items-center justify-center rounded-[15px] border-white bg-slate-100 px-8 py-4 text-[1.5rem] shadow-md">
-              <span>👋</span>
               <div className="ml-5">
                 <p className="text-left text-[0.8rem] leading-6 text-black 3xl:text-[1.75rem]">
                   Hello, I am
@@ -42,7 +41,7 @@ export default function Header() {
 
             <div className="mt-12 flex w-auto flex-col items-start justify-start rounded-[15px] border-white bg-slate-100 px-8 py-4 text-[1.5rem] shadow-md xl:items-center xl:justify-center">
               <p className="text-right text-[1.25rem] uppercase leading-6 text-black 3xl:text-[1.75rem]">
-                C.S. Student
+                Problem Solver
               </p>
               <p className="text-right text-[1.25rem] uppercase leading-6 text-black 3xl:text-[1.75rem]">
                 Software Engineer
