@@ -3,7 +3,8 @@ import { z } from "zod";
 import ContainerWrapper from "../../wrapper/container-wrapper";
 import MotionWrapper from "../../wrapper/motion-wrapper";
 import AboutCard from "./about-card";
-import { client, urlFor } from "@/lib/sanityClient";
+import { client } from "@/lib/sanity/client";
+import { urlFor } from "@/lib/sanity/image";
 import { aboutsSchema } from "@/lib/validators/abouts-validator";
 
 const getAbouts = async () => {

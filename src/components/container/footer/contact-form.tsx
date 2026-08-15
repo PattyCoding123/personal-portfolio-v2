@@ -1,6 +1,6 @@
 "use client";
 
-import { type BaseSyntheticEvent, useState } from "react";
+import { type BaseSyntheticEvent, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { client } from "@/lib/sanityClient";
+import { submitContactForm } from "@/lib/actions/contact";
 import { ButtonLoading } from "@/components/button-loading";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -27,6 +27,12 @@ export default function ContactForm() {
 
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  // Bot honeypot: real users never see or fill this field.
+  const websiteRef = useRef<HTMLInputElement>(null);
+  // Time-trap: bots that submit implausibly fast get silently rejected.
+  const startedAtRef = useRef(Date.now());
 
   const onSubmit = async (
     { name, email, message }: FormData,
@@ -34,18 +40,23 @@ export default function ContactForm() {
   ) => {
     e?.preventDefault();
     setIsLoading(true);
+    setSubmitError(null);
 
-    const contact = {
-      _type: "contact",
-      name: name,
-      email: email,
-      message: message,
-    };
-
-    await client.create(contact).then(() => {
-      setIsLoading(false);
-      setIsFormSubmitted(true);
+    const result = await submitContactForm({
+      name,
+      email,
+      message,
+      website: websiteRef.current?.value ?? "",
+      startedAt: startedAtRef.current,
     });
+
+    setIsLoading(false);
+
+    if (result.success) {
+      setIsFormSubmitted(true);
+    } else {
+      setSubmitError(result.error);
+    }
   };
 
   return (
@@ -63,6 +74,16 @@ export default function ContactForm() {
             onSubmit={form.handleSubmit(onSubmit)}
             className="mx-8 my-4 flex w-11/12 flex-col items-center justify-center rounded-md bg-card/80 p-4 lg:w-2/5"
           >
+            {/* Honeypot: hidden from sighted and screen-reader users, bots fill it in. */}
+            <input
+              ref={websiteRef}
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute left-[-9999px] h-0 w-0 overflow-hidden opacity-0"
+            />
             <FormField
               control={form.control}
               name="name"
@@ -114,6 +135,11 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
+            {submitError ? (
+              <p className="mt-2 text-[0.8rem] text-destructive">
+                {submitError}
+              </p>
+            ) : null}
             {isLoading ? (
               <ButtonLoading />
             ) : (

@@ -8,6 +8,9 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
+    // Write-only token, used solely by the server-side contact-form action.
+    // Never reference this from client code or the `client` export in `client.ts`.
+    SANITY_TOKEN: z.string().min(1),
   },
 
   /**
@@ -18,7 +21,7 @@ export const env = createEnv({
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
     NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1),
-    NEXT_PUBLIC_SANITY_TOKEN: z.string().min(1),
+    NEXT_PUBLIC_SANITY_DATASET: z.string().min(1),
   },
 
   /**
@@ -27,8 +30,9 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    SANITY_TOKEN: process.env.SANITY_TOKEN,
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-    NEXT_PUBLIC_SANITY_TOKEN: process.env.NEXT_PUBLIC_SANITY_TOKEN,
+    NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

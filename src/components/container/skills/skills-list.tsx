@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { type Skills } from "@/lib/validators/skills-validator";
 import { cn } from "@/lib/utils";
-import { urlFor } from "@/lib/sanityClient";
+import { urlFor } from "@/lib/sanity/image";
 
 interface SkillsListProps {
   skills?: Skills;

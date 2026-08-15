@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { urlFor } from "@/lib/sanityClient";
+import { urlFor } from "@/lib/sanity/image";
 import { Icons } from "@/components/icons";
 
 interface ProjectCard {
